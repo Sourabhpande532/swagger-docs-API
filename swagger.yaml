@@ -1,0 +1,27 @@
+openapi: 3.0.0
+info:
+  title: Learn express and swagger -LearnCodeOnline
+  description: LCO - a course segment about writing docs
+  version: 1.1.0
+  contact:
+    email: sp647600@gmail.com
+    url: "https://saurabh-pande.netlify.com"
+
+# servers:
+#   - url: "https://localhost:8000/api/v1"
+#     description: for local host -secure
+#   - url: "http://localhost:8000/api/v1"
+#     description: for local host -regular
+
+servers:
+  - url: "{protocol}://localhost:8000/api/{version}"
+    description: for local host -secure
+    variables:
+      version:
+        enum: 
+          - v1
+          - v2
+      protocol:
+        enum:
+          - http
+          - https
