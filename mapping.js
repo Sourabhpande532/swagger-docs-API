@@ -31,5 +31,17 @@
 -*🛕 BearerAuth:
       type: http
       scheme: bearer
--*🛕(sideNote knowledge: what does that ApiKeyAuth: beside BearerAuth in above link may be you'r desiging some kind of programe and application which is restricting people how often you use you'r api or you can heat the request so in that case you go with that.)     
+-*🛕(sideNote knowledge: what does that ApiKeyAuth: beside BearerAuth in above link may be you'r desiging some kind of programe and application which is restricting people how often you use you'r api or you can heat the request so in that case you go with that.)
+
+📶string base GET request (after 👋components portion) in swagger.yaml file.
+♦️ - in this we'r going to create very basic simple routes which return a string it can return object as well.
+♦️ - in this one we explore express for handling request as well as response becz lot of data is coming from servers and going to servers in multiple formate string,objects,files.
+♦️ - create Arrys(don't use const bcz we want to modify later)
+♦️ - create get routes(we'll keep route as it is make sure you use "servers" url that we defined in swagger.ymal just mention as it is)
+
+♦️🛕❕ - one thing always confuse to lot of people No matter what kind of routes are doing. may be for products,user,for products,for categories,for courses,whatever it all comes under one umbrella which is know as 👋😗"paths" that you can say its drawback for yaml but for temporary use you can use. sideNote there are some CLI tool provide by yaml "self explore❕ that combine all the yaml file"
+♦️ - mention exact routes last name e.g lco go and check.
+
+📶handling object=> just similar above one instead of string we need to pass object in the form of key:part usually know as "properties"
+👋😗Fact always use properties when key:pair found
 */
