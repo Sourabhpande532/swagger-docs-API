@@ -54,6 +54,7 @@ paths:
           description: Bad request
         500:
           description: internal server error
+
   /lcoobject:
     get:
       tags:
@@ -73,6 +74,60 @@ paths:
                     type: string
                   price:
                     type: number
+
+        400:
+          description: Bad request
+        500:
+          description: internal server error
+
+  /courses:
+    get:
+      tags:
+        - Array
+      summary: return a all courses from LCO
+      responses:
+        200:
+          description: All good success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    price:
+                      type: number
+
+        400:
+          description: Bad request
+        500:
+          description: internal server error
+
+  /mycourse{courseId}:
+    get:
+      tags:
+        - Array
+      summary: return a all courses from LCO
+      responses:
+        200:
+          description: All good success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    price:
+                      type: number
 
         400:
           description: Bad request

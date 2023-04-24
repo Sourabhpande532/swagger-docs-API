@@ -44,4 +44,24 @@
 
 📶handling object=> just similar above one instead of string we need to pass object in the form of key:part usually know as "properties"
 👋😗Fact always use properties when key:pair found
+
+
+📶handling array in swagger
+  -we are handling array here go and take a look on index.js see courser array.
+  😗Notice: exact routes you need to pass in swagger.yaml that you were passed in index.js e.g /api/v1/courses 
+  !courses is very important.
+   when the time comes introduced the array in object we defined "properties" after type 
+   But in array perfect thing to inside array content is know as use "items"
+
+📶sending data in URL()
+🕺in this one we want to pass something into Database or you can say backend in this case & base on that particular value we'll be getting some result so there are variety of ways how you can send some info to backend it can go through Url,also knows as parameter,paths all is one for single thing. or also proper parameters likes forms and request body & upper body.
+
+😶‍🌫️how it work just go index.js create routes - mycourse & then write some docs in yaml.
+🧠explanation: /api/v1/mycourse/:courseId
+- what is :courseId above?? => because we expect some information will come from url
+
+swaggar.yaml => mycourse{...}<= Here, need to pass this curly brases because some taking from parameter
+
+
+
 */
