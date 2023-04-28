@@ -65,20 +65,31 @@ swaggar.yaml => mycourse{...}<= Here, need to pass this curly brases because som
 
 📶Manging request body in swagger
 in this one we'r going to talk about "post" request As previously we've seen data can come throught URL,in rugular one,throught parameter couple of ways majority of times this is one way & 2nd way is that coming up the data from body "itself" it can be in form, or it can be in the formate of json.
--Now express is well know for handling both of the data with the similar kind of approach you don't need to worry until or unless the photo/image will come "we'll later discuss on separate video" in this the data is coming only json formate
+😶‍🌫️Now express is well know for handling both of the data with the similar kind of approach you don't need to worry until or unless the photo/image will come "we'll later discuss on separate video" in this the data is coming only json formate
 
--As soon as the data is coming with json You need to use "app.use()" Now this is middleware this helps us to cross data in between. so when the data goes into express and it available for you some process that's need to happend in between
+😶‍🌫️As soon as the data is coming with json You need to use "app.use()" Now this is middleware this helps us to cross data in between. so when the data goes into express and it available for you some process that's need to happend in between
 so that we've to use
- -app.use(express.json()) now this is kind of body parser previous day body parser was not part of express we need to install separately so in that case what we were doing we just crate a variable and require body express and pass it on here as a middleware. but we can use in express also default.  
+😶‍🌫️app.use(express.json()) now this is kind of body parser previous day body parser was not part of express we need to install separately so in that case what we were doing we just crate a variable and require body express and pass it on here as a middleware. but we can use in express also default.  
 
  How it work on let see.
- -we get some data into body + push data into array + return message as simple as that.
- -app.post
- -write docs in swagger.yaml
+ 😶‍🌫️we get some data into body + push data into array + return message as simple as that.
+ 😶‍🌫️app.post
+ 😶‍🌫️write docs in swagger.yaml
  https://swagger.io/docs/specification/describing-request-body/
  
- -for passing some data into body
+😶‍🌫️for passing some data into body
  previously we use parameters but now use "requestBody" previously it was send data "in" e.g in params, in body like that Now we send some body we go through "requestBody"
+ 
+ 
+📶handling url querry in swaggar(search)
+- it is very important for you to understand how data comes with querry it is very important thing that you'r doing sepecially in the case of "search" page in most of the cases what you'r going to notice Somebuddy type in the search bar or even when you seach on google while searching.
+e.g
+🛕let's you are in shopping website and you want "John ceana" tshrt what you usually do you just go on search bar of shopping website and type it & then it will gain how you will you get such thing???? don't you have Question?? all process happend in Backend.
+In the Backend i have to loop through how i'm gonna to handled that but most important part the data is coming through "query" itself.
+
+e.g 
+🛕same website on shopping let's there is tshrt between the range 300 to 400Rs this all thing will be handled into the query itself it is very imp for you to understand how it comes up and take data.
+
 
 
 */

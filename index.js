@@ -33,38 +33,51 @@ app.get("/", (req, res) => {
   res.send("Hello from lco");
 });
 
-/*(string)=>pass exact routes that we defined in swagger.yaml */
+/*🧠🧠(string)=>pass exact routes that we defined in swagger.yaml🧠🧠 */
 app.get("/api/v1/lco", (req, res) => {
   res.send("This is string base GET request Learning from LCO Docs");
 });
 
-/*(handling Objects) */
-app.get("/api/v1/lcoobject",(req,res)=>{
-    res.send({
-        id:1,
-        name:"Full Stack",
-        price: 999
-    })
-})
+/*🧠🧠(handling Objects)🧠🧠 */
+app.get("/api/v1/lcoobject", (req, res) => {
+  res.send({
+    id: 1,
+    name: "Full Stack",
+    price: 999,
+  });
+});
 
 /*(handling array)  */
-app.get("/api/v1/courses", (req,res)=>{
-  res.send(courses)
-})
+app.get("/api/v1/courses", (req, res) => {
+  res.send(courses);
+});
 
-/*(sending data in URL)  */
-app.get("/api/v1/mycourse/:courseId", (req,res)=>{
-  const course = courses.find((course) => course.id === req.params.courseId)
+/*(🧠🧠sending data in URL🧠🧠)  */
+app.get("/api/v1/mycourse/:courseId", (req, res) => {
+  const course = courses.find((course) => course.id === req.params.courseId);
   res.send(course);
-})
+});
 
-/*(Managing request body throught "POST")*/
-app.post("/api/v1/addCourse", (req,res)=>{
+/*(🧠🧠Managing request body throught "POST"🧠🧠)*/
+app.post("/api/v1/addCourse", (req, res) => {
   console.log(req.body);
-  courses.push(req.body)//we not directly push like that we do more refindment and validation check so we know what exactly is coming up.
-  res.send(true)//the data is added.
-})
+  courses.push(req.body); //we not directly push like that we do more refindment and validation check so we know what exactly is coming up.
+  res.send(true); //the data is added.
+});
 
+/* 🧠🧠handling url query in swaggar🧠🧠 */
+app.get("/api/v1/coursequery", (req, res) => {
+  let location = req.query.location;
+  let device = req.query.device;
+  let size = req.query.size
+  res.send({
+    location,
+    device,
+    size
+  });
+});
+/* -we need to pass name here as usually we send in HTML form e.g name,email,password..
+   -we'r just takeing 3 parameter here and send through via object  */
 
 
 const port = process.env.port || 8000;
