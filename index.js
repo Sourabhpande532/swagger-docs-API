@@ -7,9 +7,14 @@ const fs = require("fs");
 const YAML = require("yaml");
 const file = fs.readFileSync("./swagger.yaml", "utf8");
 const swaggerDocument = YAML.parse(file);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+const fileUpload = require("express-fileupload") //Object
 
+/*Again As told you in case want to handled anyother thing in case of json,req.body and anything you need use as a middleware belew one 👇*/
+
+/*middleware*/
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(express.json());
+app.use(fileUpload());
 
 let courses = [
   {
@@ -76,8 +81,31 @@ app.get("/api/v1/coursequery", (req, res) => {
     size
   });
 });
-/* -we need to pass name here as usually we send in HTML form e.g name,email,password..
-   -we'r just takeing 3 parameter here and send through via object  */
+
+/*👆👋 
+-@-we need to pass name here as usually we send in HTML form e.g name,email,password..
+-@-we'r just takeing 3 parameter here and send through via object  */
+
+
+/* 🧠🧠handling images in swagger🧠🧠 */
+app.post("/api/v1/courseupload",(req,res)=>{
+const file = req.files.samplefiles;
+let path = __dirname + "./Images/" + Date.now() + ".jpg";
+file.mv(path,(err)=>{
+err ? res.send(true):res.send(false);
+// res.send(true);
+})
+})
+
+/*👆👋
+feel free to add name anyname but ensure that frontend one is supposed to be same name after name
+-@- you need to tell explicitely where you want to move files mense define 
+  path like __dirname + "./Images/" +(want to rename this there are lot of ways to rename this 😍😍 you can generate a unique id, you can use packages like -uuid which can give some unique name in this one we've mentioned Date.now() + ".jpg" it's not idea way but it's a easy way to stored the images & saves a lot of time form servers) yes ther are specific module which shrink the file and lower down quality but later discuss
+ -@- file.mv()<= it expect two parameter
+  Note: additionaly you can store path this into DBs
+ */
+
+
 
 
 const port = process.env.port || 8000;

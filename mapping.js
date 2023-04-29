@@ -7,15 +7,15 @@
 ♦️ @ref:🔗https://www.npmjs.com/package/swagger-ui-express
 ♦️ @ref:🔗https://swagger.io/docs/specification/about/
 
-📶create files
+📶📶create files
 ♦️ -nodemon.json
 ♦️ -index.js
 ♦️ -swagger.yaml
 
-📶Start writing Docs
+📶📶Start writing Docs
 ♦️ -inside swagger.yaml(e.g openapi: 3.0.0)
 
-📶Authentication and Authorization inside swagger.yaml file after 👻"enum"
+📶📶Authentication and Authorization inside swagger.yaml file after 👻"enum"
 🔗🛕https://swagger.io/docs/specification/authentication/
 ♦️ - in this video we'r talked about securitySchema if you'll be working on- 
     complex project it is obvious you've to write some protected routes 
@@ -33,7 +33,7 @@
       scheme: bearer
 -*🛕(sideNote knowledge: what does that ApiKeyAuth: beside BearerAuth in above link may be you'r desiging some kind of programe and application which is restricting people how often you use you'r api or you can heat the request so in that case you go with that.)
 
-📶string base GET request (after 👋components portion) in swagger.yaml file.
+📶📶string base GET request (after 👋components portion) in swagger.yaml file.
 ♦️ - in this we'r going to create very basic simple routes which return a string it can return object as well.
 ♦️ - in this one we explore express for handling request as well as response becz lot of data is coming from servers and going to servers in multiple formate string,objects,files.
 ♦️ - create Arrys(don't use const bcz we want to modify later)
@@ -42,7 +42,7 @@
 ♦️🛕❕ - one thing always confuse to lot of people No matter what kind of routes are doing. may be for products,user,for products,for categories,for courses,whatever it all comes under one umbrella which is know as 👋😗"paths" that you can say its drawback for yaml but for temporary use you can use. sideNote there are some CLI tool provide by yaml "self explore❕ that combine all the yaml file"
 ♦️ - mention exact routes last name e.g lco go and check.
 
-📶handling object=> just similar above one instead of string we need to pass object in the form of key:part usually know as "properties"
+📶📶handling object=> just similar above one instead of string we need to pass object in the form of key:part usually know as "properties"
 👋😗Fact always use properties when key:pair found
 
 
@@ -53,7 +53,7 @@
    when the time comes introduced the array in object we defined "properties" after type 
    But in array perfect thing to inside array content is know as use "items"
 
-📶sending data in URL()
+📶📶sending data in URL()
 🕺in this one we want to pass something into Database or you can say backend in this case & base on that particular value we'll be getting some result so there are variety of ways how you can send some info to backend it can go through Url,also knows as parameter,paths all is one for single thing. or also proper parameters likes forms and request body & upper body.
 
 😶‍🌫️how it work just go index.js create routes - mycourse & then write some docs in yaml.
@@ -63,7 +63,7 @@
 swaggar.yaml => mycourse{...}<= Here, need to pass this curly brases because some taking from parameter
 
 
-📶Manging request body in swagger
+📶📶Manging request body in swagger
 in this one we'r going to talk about "post" request As previously we've seen data can come throught URL,in rugular one,throught parameter couple of ways majority of times this is one way & 2nd way is that coming up the data from body "itself" it can be in form, or it can be in the formate of json.
 😶‍🌫️Now express is well know for handling both of the data with the similar kind of approach you don't need to worry until or unless the photo/image will come "we'll later discuss on separate video" in this the data is coming only json formate
 
@@ -81,7 +81,7 @@ so that we've to use
  previously we use parameters but now use "requestBody" previously it was send data "in" e.g in params, in body like that Now we send some body we go through "requestBody"
  
  
-📶handling url querry in swaggar(search)
+📶📶handling url querry in swaggar(search)
 - it is very important for you to understand how data comes with querry it is very important thing that you'r doing sepecially in the case of "search" page in most of the cases what you'r going to notice Somebuddy type in the search bar or even when you seach on google while searching.
 e.g
 🛕let's you are in shopping website and you want "John ceana" tshrt what you usually do you just go on search bar of shopping website and type it & then it will gain how you will you get such thing???? don't you have Question?? all process happend in Backend.
@@ -89,6 +89,34 @@ In the Backend i have to loop through how i'm gonna to handled that but most imp
 
 e.g 
 🛕same website on shopping let's there is tshrt between the range 300 to 400Rs this all thing will be handled into the query itself it is very imp for you to understand how it comes up and take data.
+
+📶📶handling images in swagger
+- a lot of people get affraid of as soon as there file being uploaded or image being uploaded & they found all the time it's confusing how to handled the images it's ok to confuse bez images by default is not a part of exprss itself expres don't know how to handled this kind of binary data images,pdf & whatever that usually there are other tool to handled that one of them is 😶‍🌫️"multer" is quite famous one lot more there. but in this we install belew one.
+
+  -♦️-🖇️https://www.npmjs.com/package/express-fileupload
+  -♦️-  npm i express-fileupload
+  -♦️-  app.post('/upload', function(req, res) {
+  console.log(req.files.foo); // the uploaded file object
+  });
+
+  -@- explain:=> As soon as you see "/upload" something in the routes it will 
+             Give you a access through req.files just like you get
+             req.body or whatever the files get uploaded .foo is 
+             responsible for whatever you naming it at the time of 
+             defining in the frontend form. remember user,name,email
+             you can upload multiple where if you click one of them examples: it will give you a source code:👇
+             🖇️https://github.com/richardgirges/express-fileupload/tree/master/example
+             -@- explain: you will notice over there (the name I was talking about)
+              a)<input type="file" name="sampleFile" />
+                <input type='submit' value='Upload!' />
+              b)The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+              -sampleFile = req.files.sampleFile;
+              -uploadPath = __dirname + '/somewhere/on/your/server/' + sampleFile.name; 
+              🧐 then what you do after the image being uploaded it's all up to you where you exactly what to upload is it on firebase,AWS,cloundary,or files anywhere however you want to handled that. 
+              in this one we just uploaded on folder /images. <- all of the images will be move up here.
+              let's go on 📂index.js
+
+
 
 
 
