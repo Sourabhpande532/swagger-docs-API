@@ -221,6 +221,32 @@ paths:
         500:
           description: internal server error
 
-  
+  /courseupload:
+    post:
+      tags:
+        - string
+      summary: uploding course Images
+      parameters:
+        - in: header
+          name: auth
+      requestBody:
+        content:
+            multipart/form-data:
+              schema:
+                type: object
+                properties:
+                  file:
+                    type: string
+                    format: binary
+      responses:
+        200:
+          description: All good success     
+        400:
+          description: Bad request
+        500:
+          description: internal server error
+
+      # 👆👆 Images are always go through body that's why we called multi part body
+      # 👆👆 the content am sending you is not application/json rather it's a part of multipart/form-data that's you'r gonna see lot of react & angular send data through form instead of send through states they create a form data you can't send Images via json you can send the Images path but its complex rather choose this one.
 
 

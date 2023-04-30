@@ -89,13 +89,21 @@ app.get("/api/v1/coursequery", (req, res) => {
 
 /* 🧠🧠handling images in swagger🧠🧠 */
 app.post("/api/v1/courseupload",(req,res)=>{
-const file = req.files.samplefiles;
-let path = __dirname + "./Images/" + Date.now() + ".jpg";
-file.mv(path,(err)=>{
-err ? res.send(true):res.send(false);
-// res.send(true);
+  console.log(req.headers);
+  const file = req.files.file;
+  if(!file){
+    return res.status(400).send('No file uploaded.');
+  }
+  let path = __dirname + "/Images/" + Date.now() + ".jpg";
+  file.mv(path,(err)=>{
+    if(err){
+      console.log(err);
+      return res.status(500).send(err);
+    }
+    res.send('File uploaded!');
+  })
 })
-})
+
 
 /*👆👋
 feel free to add name anyname but ensure that frontend one is supposed to be same name after name
@@ -104,9 +112,6 @@ feel free to add name anyname but ensure that frontend one is supposed to be sam
  -@- file.mv()<= it expect two parameter
   Note: additionaly you can store path this into DBs
  */
-
-
-
 
 const port = process.env.port || 8000;
 app.listen(port, () => {

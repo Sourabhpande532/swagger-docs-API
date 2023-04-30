@@ -112,9 +112,23 @@ e.g
               b)The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
               -sampleFile = req.files.sampleFile;
               -uploadPath = __dirname + '/somewhere/on/your/server/' + sampleFile.name; 
-              🧐 then what you do after the image being uploaded it's all up to you where you exactly what to upload is it on firebase,AWS,cloundary,or files anywhere however you want to handled that. 
+              🧐 then what you do after the image being uploaded it's all up to you where you exactly what to upload is it on firebase,AWS,cloundary, s3 bucketts or files anywhere however you want to handled that. 
               in this one we just uploaded on folder /images. <- all of the images will be move up here.
               let's go on 📂index.js
+
+📶📶handling header tokens in swaggar;
+In previous one need to add console.(req.headers) see on console how headers play's vital role in order to move go ahead.
+in swaggar.yaml inside /courseupload try to add parameters in order to get info of headers
+*👋👋need to tell parameters where you acutully come so for that use 
+-in: header(🧐pass in parameters)
+*👋👋further down the road you just have to mention auth
+-name: auth(what it'll do just go ahead and reloade)(🧐pass in parameters)
+ 
+😶‍🌫️terminal-> in this one you'r gonna notice🧐 this time it says cookie becz we accpted the cookie base authentication check on auth:xyz in this one the value is gonna coming up in cookie:see token-xyz(this is secure token) not only that i'm getting lot of headers that has good information for e.g am getting this auth:xyz -just provide an authentication headers just go ahead and accept that into request which govern by express.
+
+refference:for further study's 
+🖇️https://swagger.io/docs/specification/authentication/
+🖇️ 
 
 
 
