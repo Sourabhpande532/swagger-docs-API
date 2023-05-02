@@ -107,10 +107,10 @@ paths:
         500:
           description: internal server error
 
-  /mycourse{courseId}:
+  /mycourse/{courseId}:
     get:
       tags:
-        - Array
+        - array
       summary: return a all courses from LCO
       parameters:
         - name: courseId
@@ -125,16 +125,14 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    name:
-                      type: string
-                    price:
-                      type: number
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  price:
+                    type: number
 
         400:
           description: Bad request

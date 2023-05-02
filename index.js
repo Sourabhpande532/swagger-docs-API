@@ -59,7 +59,7 @@ app.get("/api/v1/courses", (req, res) => {
 
 /*(🧠🧠sending data in URL🧠🧠)  */
 app.get("/api/v1/mycourse/:courseId", (req, res) => {
-  const course = courses.find((course) => course.id === req.params.courseId);
+  const course = courses.find(courseData => courseData.id === req.params.courseId);
   res.send(course);
 });
 

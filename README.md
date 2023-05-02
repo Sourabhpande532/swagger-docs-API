@@ -12,6 +12,9 @@
 
 ![HTML & CSS-Assighnment-project](https://img.shields.io/badge/-Ineuron--Assignment-blue)
 
+![](./Images/Screenshot%202023-05-02%20195456.png)
+![](./Images/Screenshot%202023-05-02%20195557.png)
+
 ## Technologies used
 
 > JavaScript
